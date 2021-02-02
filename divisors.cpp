@@ -3,6 +3,9 @@
 #include <math.h>
 using namespace std;
 
+// program to calculate No. of divisors of a number 
+
+
 void printVector(vector<int> v)
 {
 	sort(v.begin(), v.end());
