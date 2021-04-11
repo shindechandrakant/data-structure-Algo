@@ -21,30 +21,17 @@ long long int count(long long int n)
 	table[0] = 1;                 
 	// If 0 sum is required number of ways is 1.
 
-	    
-    for(int i = 3; i <= n; i++)
-    {
-        if((i - 3) >= 0)
-            table[i] += table[i-3];
-        if((i - 5) >= 0)
-            table[i] += table[i-5];
-        
-        if((i - 10) >= 0)
-            table[i] += table[i-10];
 
-        display(table, n);
-        
-    }
     
-    // for (i = 3; i <= n; i++) 
-    // table[i] += table[i - 3]; 
-    //   display(table, n);
-    // for (i = 5; i <= n; i++) 
-    // table[i] += table[i - 5]; 
-    //   display(table, n);
-    // for (i = 10; i <= n; i++) 
-    // table[i] += table[i - 10]; 
-    //   display(table, n);
+    for (i = 3; i <= n; i++) 
+    table[i] += table[i - 3]; 
+      display(table, n);
+    for (i = 5; i <= n; i++) 
+    table[i] += table[i - 5]; 
+      display(table, n);
+    for (i = 10; i <= n; i++) 
+    table[i] += table[i - 10]; 
+      display(table, n);
 
 	
 	return table[n];

@@ -22,7 +22,7 @@ int longestIncreasingSubsequence(int *arr, int n)
 	// memset(lis, 1, sizeof(int*n));
 
 	for(int i = 0; i < n; i++)
-		lis[i] = 1;
+		lis[0] = 1;
 
 	display(lis, n);
 	for(int i = 0; i < n; i++) 
@@ -45,14 +45,16 @@ int longestIncreasingSubsequence(int *arr, int n)
 
 int main() 
 {
-	int n;
-	cin>>n;
 
-	int *arr = new int[n];
-	for(int i = 0; i < n; i++)
-	  	cin>>arr[i];
+	cout<<"Hello \a";
+	// int n;
+	// cin>>n;
 
-	display(arr, n);
-	cout<<longestIncreasingSubsequence(arr, n);
+	// int *arr = new int[n];
+	// for(int i = 0; i < n; i++)
+	//   	cin>>arr[i];
+
+	// display(arr, n);
+	// cout<<longestIncreasingSubsequence(arr, n);
 }
 
