@@ -59,59 +59,65 @@ class Graph {
 				cout<<endl;
 			}
 
-			cout<<"\n\n";
+			cout<<"\n";
 		}
 
-		void dfs(int node, vector<bool> &visited) {
+
+		// detect cycle using dfs recursive solution
+
+		bool isCycleDFSRecursive(vb &visited, vb &checked, int node) {
+
 
 			visited[node] = true;
-			for(auto it: adj[node]) {
+			checked[node] = true;
 
-				if(not visited[it]) {
+			for(auto it : adj[node]) {
 
-					dfs(it, visited);
+				if(checked[it]) {
+
+					// cycle is detected
+					return true;
+				} else if(not visited[it] and isCycleDFSRecursive(visited, checked, it)) { 
+
+					// to avoid visited calls
+					return true;
 				}
+
+
 			}
+
+			checked[node]= false;
+			return false;
 		}
 
-	    bool isCycle(vector<bool> &visited, int n, vector<bool> &check) {
-	       
-	        visited[n] = true;
-	        check[n] = true;
-	        
-	        for(auto it: adj[n]) {
-	            
-	            if(check[it] )
-	                return true;
-	            else if(not visited[it] and isCycle(visited, it, check)) 
-	                 return true;
-	        }
-	        check[n] = false;
-	        return false;
-	    }
+		void detectCycleUsingDFSRecursiveMethod() {
 
-		void detectCycleDFSUndirectedGraph() {
 
-			vector<bool> visited(nodes+1, false);
-     
+			vb visited(nodes+1, false);
+			int cycles = 0;
 
 			for(int i = 0; i <= nodes; i++) {
 
 				if(not visited[i]) {
 
-					vb check(nodes+1, false);
+					vb checked(nodes+1, false);
 
-					if(isCycle(visited, check, i)) {
+					if(isCycleDFSRecursive(visited, checked, i)) {
 
-						cout<<"Cycle is present ";
+						cout<<"Given graph is cyclic"<<endl;
 						return;
 					}
 				}
-
-				cout<<"Graph is Acyclic";
 			}
-		}
 
+			cout<<"Given graph is Acyclic\n";
+			cout<<endl;
+		} 
+
+
+		
+
+	
 };
 
 
@@ -121,23 +127,28 @@ int main() {
 	freopen("../io/input.txt", "r", stdin);
 	freopen("../io/output.txt", "w", stdout);
 
+	int t;
+	cin>>t;
+	while(t--) {
+
 	
-	int nodes, edges;
-	cin>>nodes>>edges;
+		int nodes, edges;
+		cin>>nodes>>edges;
 
-	Graph g(nodes);
+		Graph g(nodes);
 
-	for(int i = 0; i < edges; i++) {
+		for(int i = 0; i < edges; i++) {
 
-		int u, v;
-		cin>>u>>v;
-		// cout<<u<<" "<<v<<endl;
-		g.addEdge(u , v);
+			int u, v;
+			cin>>u>>v;
+			// cout<<u<<" "<<v<<endl;
+			g.addEdge(u , v);
+		}
+
+		g.printGraph();
+		g.detectCycleUsingDFSRecursiveMethod();
+
 	}
-
-	g.printGraph();
-	g.detectCycleDFSUndirectedGraph();
-
 
 
 
@@ -145,3 +156,41 @@ int main() {
 	fclose(stdout);
 
 }
+
+ //    bool isCycle(vector<bool> &visited, int n, vector<bool> &check) {
+	       
+	 //        visited[n] = true;
+	 //        check[n] = true;
+	        
+	 //        for(auto it: adj[n]) {
+	            
+	 //            if(check[it] )
+	 //                return true;
+	 //            else if(not visited[it] and isCycle(visited, it, check)) 
+	 //                 return true;
+	 //        }
+	 //        check[n] = false;
+	 //        return false;
+	 //    }
+
+		// void detectCycleDFSUndirectedGraph() {
+
+		// 	vector<bool> visited(nodes+1, false);
+     
+
+		// 	for(int i = 0; i <= nodes; i++) {
+
+		// 		if(not visited[i]) {
+
+		// 			vb check(nodes+1, false);
+
+		// 			if(isCycle(visited, check, i)) {
+
+		// 				cout<<"Cycle is present ";
+		// 				return;
+		// 			}
+		// 		}
+
+		// 		cout<<"Graph is Acyclic";
+		// 	}
+		// }
