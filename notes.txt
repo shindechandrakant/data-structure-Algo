@@ -1,0 +1,111 @@
+// Problem statemant - Calculate Factorial of Big number
+// Problem link - https://www.codechef.com/submit/FCTRL2
+
+
+#include <iostream>
+using namespace std;
+#include<vector>
+#include<bits/stdc++.h>
+
+void calculateFact(int val, vector<int> &num, int &curr_indx)
+{
+    int carry = 0;
+    for(int i = 0; i < curr_indx; i++)
+    {
+        int multi = num[i] * val + carry;
+        
+        num[i] = multi % 10;
+        carry = multi / 10;
+    }
+    while(carry) {
+        
+        num[curr_indx] = carry % 10;
+        carry /= 10;
+        curr_indx++;
+    }
+}
+void facto(int n)
+{
+    vector<int>v(300, 1);
+    int curr_indx = 1;
+    
+    for(int i = 2; i <= n; i++) {
+        
+        calculateFact(i, v, curr_indx);
+    }
+    for(int i = curr_indx - 1; i >= 0; i--)
+    {
+        cout<<v[i];
+    }
+    cout<<endl;
+}
+
+
+int main() {
+
+    int t;
+    cin>>t;
+    
+    while(t--)
+    {
+       int n;
+       cin>>n;
+       
+       facto(n);
+    }
+}
+
+
+
+
+// Diameter of tree
+
+
+ 
+
+
+
+// catalan number
+Link
+https://www.geeksforgeeks.org/program-nth-catalan-number/
+
+// catelan formula
+(2n)!/ n!(n+1)! 
+
+// to calculate (0, 0) to (n, n) paths
+(2n)!/n! n!
+
+// to calculate upper part
+(2n)!/ n! (n+1)!
+
+// to calculate no. of path from 00 to m, n
+(m-1 + n-1)!/(m-1)!(n-1)!.
+
+
+
+// Bell Numbers (Number of ways to Partition a Set )
+Let S(n, k) be total number of partitions of n elements into k sets.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

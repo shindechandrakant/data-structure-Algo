@@ -18,10 +18,14 @@ void powerOfNumber(int number, int power) {
 	}
 	cout<<number<<"^"<<power<<" "<<count<<endl;
 
+	int answer = 0;
 	for(int i = count - 1; i >= 0; i--)
 	{
 		cout<<ans[i];
+		answer += ans[i];
 	};
+
+	cout<<endl<<endl<<answer;
 
 }
 
@@ -53,14 +57,14 @@ int main()
 	int  num;
 	int power;
 
-	for(int i = 0; i < 5; i++){
+
 
 		cin>>num;
 		cin>>power;
 
 		powerOfNumber(num, power);
 		cout<<endl<<endl;
-	}
+
 }
 
 
