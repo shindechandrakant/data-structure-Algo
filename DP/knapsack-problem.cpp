@@ -82,7 +82,6 @@ int dynamicMethod(vi &weight, vi &value, int capacity) {
 // Unbounded Duplicacy allowed
 int dynamicMethodUB(vi &weight, vi &value, int capacity) {
 
-
 	int *arr = new int[capacity+1] { 0 };
 
 	for(int curCap = 1; curCap <= capacity; curCap++) {

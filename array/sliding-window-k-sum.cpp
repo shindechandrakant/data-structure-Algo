@@ -13,6 +13,9 @@ using namespace std;
 
 int main() {
 
+	freopen("../io/input.txt", "r", stdin);
+    freopen("../io/output.txt", "w", stdout);
+
 	int n, k;
 	cin>>n>>k;
 	vector<int> arr(n);
@@ -40,4 +43,9 @@ int main() {
 		// cout<<i<<" "<<i+k<<" : "<<arr[i+k-1]<<" "<<maxSum<<endl;
 	}
 	cout<<ans;
+
+
+	
+    fclose(stdin);
+    fclose(stdout);
 }

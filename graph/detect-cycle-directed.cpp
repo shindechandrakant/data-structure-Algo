@@ -17,10 +17,10 @@ using namespace std;
  
 /*
 	functions: all operation for cycle detection are performed on directed Graph
-	1 -> using BFS non recursive
-	2 -> using BFS recursive
-	3 -> using DFS non recursive
-	4 -> using DFS recursive
+	1 -> using BFS non recursive--------not completed
+	2 -> using BFS recursive------------not completed
+	3 -> using DFS non recursive--------not completed
+	4 -> using DFS recursive------------completed
 	5 -> Detect No. of Cycles
 	6 -> print All cycles with length and path
 */
@@ -62,9 +62,8 @@ class Graph {
 			cout<<"\n";
 		}
 
-
-		// detect cycle using dfs recursive solution
-
+		//------------------------------------------
+		// helper for detectCycleUsingDFSRecursiveMethod
 		bool isCycleDFSRecursive(vb &visited, vb &checked, int node) {
 
 
@@ -90,11 +89,11 @@ class Graph {
 			return false;
 		}
 
+		// detect cycle using dfs recursive solution
 		void detectCycleUsingDFSRecursiveMethod() {
 
 
 			vb visited(nodes+1, false);
-			int cycles = 0;
 
 			for(int i = 0; i <= nodes; i++) {
 
@@ -104,20 +103,134 @@ class Graph {
 
 					if(isCycleDFSRecursive(visited, checked, i)) {
 
-						cout<<"Given graph is cyclic"<<endl;
+						cout<<"DFS Rec : Given graph is cyclic"<<endl;
 						return;
 					}
 				}
 			}
 
-			cout<<"Given graph is Acyclic\n";
+			cout<<"DFS Rec : Given graph is Acyclic\n";
 			cout<<endl;
-		} 
+		}
+
+		//----------------------------------------
+		//---Wrong answer
+		// helper for isCycleDFSIterative
+		bool isCycleDFSIterative(vb &visited, int node) {
+
+			stack<int> stk;
+			vb stacked(nodes+1, false);
+			
+			stk.push(node);
+			stacked[node] = true;
+
+			while(not stk.empty()) {
+
+				int top = stk.top();
+				stk.pop();
+				visited[top] = true;
+
+				for(auto it : adj[top]) {
+
+					if(not stacked[it] and not visited[it]) {
+
+						stk.push(it);
+						stacked[it] = true;
+
+					} else if(visited[it] and stacked[it]) {
+
+						return true;
+					}
+				}
+			}
 
 
+
+			return false;
+		}
+		// detect cycle using dfs iterative solution
+		void detectCycleUsingDFSIterativeMethod() {
+
+			vb visited(nodes+1, false);
+
+			for(int i = 0; i <= nodes; i++) {
+
+				if(not visited[i]) {
+
+					if(isCycleDFSIterative(visited, i)) {
+
+						cout<<"DFS Itr : Given graph is cyclic"<<endl;
+						return;
+					}
+
+				}
+			}
+
+			cout<<"DFS Itr : Given graph is Acyclic\n";
+			cout<<endl;
+		}
+		//-----------------------------------------
+		//wrong solutions
+		// helper for isCycleDFSIterative
+		bool isCycleBFSIterative(vb &visited, int node) {
+
+
+			queue<int> q;
+			q.push(node);
+
+			vb added(edges+1, false);
+			added[node] = true;
+
+			while(not q.empty()) {
+
+				int front = q.front();
+				q.pop();
+				visited[front] = true;
+
+				for(auto it : adj[front]) {
+
+					if(not added[it]) {
+
+						added[it] = true;
+						q.push(it);
+					}
+					else if(not visited[it]) {
+						return true;
+					}
+
+				}
+
+
+
+
+			}
+
+
+			return false;
+		}
 		
+		// detect cycle using bfs iterative solution
+		void detectCycleUsingBFSIterativeMethod() {
 
-	
+			vb visited(nodes+1, false);
+
+			for(int i = 0; i <= nodes; i++) {
+
+				if(not visited[i]) {
+
+					if(isCycleBFSIterative(visited, i)) {
+
+						cout<<"BFS Itr : Given graph is cyclic\n\n";
+						return;
+					}
+				}
+			}
+			cout<<"BFS Itr : Given graph is Acyclic\n\n";
+		}
+
+		//--------------------------------------------
+		// find no. of cycles
+
 };
 
 
@@ -146,7 +259,9 @@ int main() {
 		}
 
 		g.printGraph();
-		g.detectCycleUsingDFSRecursiveMethod();
+		g.detectCycleUsingBFSIterativeMethod();
+		// g.detectCycleUsingDFSIterativeMethod();
+		// g.detectCycleUsingDFSRecursiveMethod();
 
 	}
 

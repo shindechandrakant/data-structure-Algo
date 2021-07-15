@@ -1,0 +1,54 @@
+nt Solution::majorityElement(const vector<int> &a) {
+    
+    int n=a.size();
+    int ctr=0;
+    int idx;
+    for(int i=0;i<n;i++)
+    {
+        if(ctr==0)
+        {
+            idx=i;
+            
+        }
+        int p=0;
+        if(a[i]==a[idx])
+        ctr++;
+        else
+        ctr--;
+        
+        
+    }
+    return a[idx];
+}
+
+
+
+
+
+
+
+int Solution::maxArea(vector<int> &a) {
+  int l=0;
+  int n=a.size();
+  int r=n-1;
+  int ans=min(a[l],a[r])*(r-l);
+  while(l<r)
+  {
+      if(a[l]>a[r])
+      r--;
+      else
+      l++;
+      ans=max(ans,min(a[l],a[r])*(r-l));
+  }
+  return ans;
+}
+
+Given n non-negative integers a1, a2, ..., an,
+where each represents a point at coordinate (i, ai).
+'n' vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0).
+
+Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+
+Your program should return an integer which corresponds to the maximum area of water that can be contained ( Yes, we know maximum area instead of maximum volume sounds weird. But this is 2D plane we are working with for simplicity ).
+
+ Note: You may not slant the container. 
