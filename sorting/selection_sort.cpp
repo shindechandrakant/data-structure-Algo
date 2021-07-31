@@ -22,35 +22,41 @@ Problem link ->
 
 int main() {
 
-  freopen("./io/input.txt", "r", stdin);
-    freopen("./io/output.txt", "w", stdout);
+    freopen("../io/input.txt", "r", stdin);
+    freopen("../io/output.txt", "w", stdout);
+
+
+	int n;
+    cin>>n;
+    vi array(n);
+
+    for(int i = 0; i < n; i++)
+    	cin>>array[i];
+
+    for(auto it : array) cout<<it<<" ";
+    
+    
+    // selection sort
+
+    for(int i = 0; i < n; i++) {
+    	
+    	int indx = i;
+
+    	for(int j = i+1; j < n; j++) {
+
+    		if(array[indx] > array[j]) {
+    			indx = j;
+    		}
+    	}
+
+    	swap(array[i], array[indx]);
+    }
 
 
 
-	
-
-
-
-
+    for(auto it : array) cout<<it<<" ";
 
     fclose(stdin);
     fclose(stdout);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
