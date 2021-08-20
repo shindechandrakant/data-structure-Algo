@@ -19,6 +19,15 @@ using namespace std;
 problem statement -> 
 Problem link -> 
 */
+// template<class T>
+
+template<typename T>
+T minMax(T a, T b) {
+
+	return a > b ? a : b;
+}
+
+struct Aaa { int x; };
 
 int main() {
 
@@ -26,7 +35,6 @@ int main() {
     freopen("../io/output.txt", "w", stdout);
 
 
-	cout<<"I'm Running";
 
 
     fclose(stdin);

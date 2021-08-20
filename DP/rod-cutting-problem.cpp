@@ -20,13 +20,47 @@ problem statement ->
 Problem link -> 
 */
 
+int *answer;
+
+int maxCuttingProfit(vector<int> &arr, int length) {
+
+	if(length == 0) {
+
+		return 0;
+	}
+
+	int maxProfit = 
+
+
+}
+
+
+
 int main() {
 
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
 
 
-	cout<<"I'm Running";
+	int n;
+	cin>>n;
+
+	answer = new int[n] { 0 };
+
+	vector<int> arr(n);
+
+	for(int i = 0; i < n; i++) {
+
+		cin>>arr[i];
+		answer[i] = arr[i];
+
+
+	}
+
+
+
+
+
 
 
     fclose(stdin);

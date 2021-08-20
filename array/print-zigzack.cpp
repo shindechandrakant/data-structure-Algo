@@ -20,13 +20,55 @@ problem statement ->
 Problem link -> 
 */
 
+bool isItSafe(vector<vi> &array, int row, int col) {
+
+	return row >= 0 and col >= 0 and array.size() > row and array[row].size() > col;
+
+}
+
+
+void printZicZac(vector<vi> &array, int row, int col) {
+
+
+	if(not isItSafe(array, row, col)) {
+
+		return;
+	}
+
+	cout<<array[row][col]<<" ";
+	
+
+	printZicZac(array, row, col+1);
+	
+
+}
+
+
+
 int main() {
 
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
 
 
-	cout<<"I'm Running";
+	int n, m;
+	cin>>n>>m;
+
+	vector<vi> array(n, vi(m));
+
+	for(int i = 0; i < n; i++) {
+
+		for(int j = 0; j < m; j++) {
+
+			cin>>array[i][j];
+		}
+	}
+
+
+	printZicZac(array, 0, 0);
+
+
+
 
 
     fclose(stdin);

@@ -20,13 +20,43 @@ problem statement ->
 Problem link -> 
 */
 
+vector<string> powerOfTwos() {
+
+	vector<string> answer;
+
+
+	for(ll i = 0; i <= 36; i++) {
+
+		answer.push_back(to_string((ll)1l<<i));
+		cout<<answer[i]<<endl;
+	}
+
+	return answer;
+}
+
 int main() {
 
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
 
+    ll t;
+    cin>>t;
 
-	cout<<"I'm Running";
+    vector<string> pows = powerOfTwos();
+
+    while(t--) {
+
+
+    	string k;
+    	cin>>k;
+
+
+
+    }
+
+
+
+
 
 
     fclose(stdin);

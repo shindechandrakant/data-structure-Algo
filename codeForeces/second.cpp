@@ -22,14 +22,56 @@ Problem link ->
 
 int main() {
 
-    freopen("../io/input.txt", "r", stdin);
-    freopen("../io/output.txt", "w", stdout);
+    // freopen("../io/input.txt", "r", stdin);
+    // freopen("../io/output.txt", "w", stdout);
 
 
-	cout<<"I'm Running";
+	ll t;
+	cin>>t;
+
+	while(t--) {
+
+		ll a, b, c;
+		cin>>a>>b>>c;
+
+		ll nppls = long(2l*abs(a-b));
+
+		ll half = nppls/2l;
+		ll answer = 0;
+
+		if(nppls < c or nppls < a or nppls < b) {
+			cout<<-1<<endl;
+			continue;
+		}
+
+		if(c > half)
+			answer = c-half;
+		else
+			answer = (c+half);
+
+		cout<<answer<<endl;
+		
+		
+
+	}
 
 
-    fclose(stdin);
-    fclose(stdout);
+
+
+    // fclose(stdin);
+    // fclose(stdout);
 
 }
+
+/*
+8
+-1
+-1
+-1
+4
+1
+-1
+
+
+
+*/

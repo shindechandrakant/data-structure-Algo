@@ -20,13 +20,45 @@ problem statement ->
 Problem link -> 
 */
 
+
+int _power(int n, int power) {
+
+	if(power == 0) {
+
+		return 1;
+	}
+
+	int halfPower = _power(n, power/2);
+
+	if(power%2 == 0) {
+
+		return halfPower*halfPower;
+	}
+	else {
+
+		return halfPower*halfPower*n;
+	}
+}
+
+
 int main() {
 
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
 
 
-	cout<<"I'm Running";
+	int n, power;
+
+	cin>>n>>power;
+
+
+	for(int i = 0; i < 15; i++) {
+
+		cout<<_power(2, i)<<endl;
+
+	}
+
+
 
 
     fclose(stdin);

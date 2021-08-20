@@ -20,13 +20,53 @@ problem statement ->
 Problem link -> 
 */
 
+
+
+
+
+class Parent {
+
+	public:
+
+		void add(string x, string y) {
+
+			cout<<" In ADD sting";
+			
+		}
+
+};
+
+
+class Demo: public Parent {
+
+	public:
+
+		void add(int x, int y) {
+
+			cout<<" In ADD int";
+		}
+
+		
+
+
+};
+
+
 int main() {
 
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
 
 
-	cout<<"I'm Running";
+	Demo d;
+
+	d.add(3, 4);
+	d.add("1.3", "5.4");
+
+	// int s = 0;
+	// cout<<typeid(s).name();
+	// cout<<endl<<decltype(s);
+
 
 
     fclose(stdin);

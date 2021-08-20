@@ -20,13 +20,35 @@ problem statement ->
 Problem link -> 
 */
 
+class Demo {
+
+	int x;
+
+	public:
+		
+		Demo (int x) {
+
+			this -> x = x;
+		}
+
+		int valueX(){
+
+			return x;
+		}
+
+};
+
+void fun(); 
+
 int main() {
+
+	
 
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
 
 
-	cout<<"I'm Running";
+	cout<<(&main)<<" "<<(&fun);
 
 
     fclose(stdin);

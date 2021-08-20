@@ -22,14 +22,18 @@ Problem link ->
 
 int main() {
 
-    freopen("../io/input.txt", "r", stdin);
-    freopen("../io/output.txt", "w", stdout);
+    // freopen("../io/input.txt", "r", stdin);
+    // freopen("../io/output.txt", "w", stdout);
 
 
 	cout<<"I'm Running";
 
 
-    fclose(stdin);
-    fclose(stdout);
+
+
+
+
+    // fclose(stdin);
+    // fclose(stdout);
 
 }

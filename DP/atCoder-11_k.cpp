@@ -17,16 +17,54 @@ using namespace std;
 
 /*
 problem statement -> 
-Problem link -> 
+Problem link -> https://atcoder.jp/contests/dp/tasks/dp_k
 */
+
+
+string stones(vi &arr, ll k) {
+
+	vb dp(k+1, false);
+
+	for(int i = 1; i <= k; i++) {
+
+		for(auto val : arr) {
+
+			if(i < val) {
+				continue;
+			}
+			if(not dp[i-val]) {
+
+				dp[i] = true;
+			}
+		}
+	}
+	return dp[k] ? "First" : "Second";
+}
+
 
 int main() {
 
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
 
+    ll n, k;
 
-	cout<<"I'm Running";
+    cin>>n>>k;
+
+    vi v(n);
+
+    for(auto &it : v) {
+
+    	cin>>it;
+    }
+
+
+    cout<<stones(v, k);
+
+
+
+
+
 
 
     fclose(stdin);

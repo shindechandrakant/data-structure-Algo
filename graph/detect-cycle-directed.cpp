@@ -12,7 +12,7 @@ using namespace std;
 #define v2d(name, m, n, inti) vector<vi>(name)(m, vi(n, inti))
 #define MOD 1000000007
 
-// problem statement -> Detect Cycle In a Graph in directed Graph
+// problem statement -> Detect Cycle In a directed Graph
 // Problem link -> https://www.geeksforgeeks.org/detect-cycle-in-a-graph/
  
 /*

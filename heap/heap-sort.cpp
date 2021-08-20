@@ -58,7 +58,7 @@ void max_heapify(vi &arr, int indx, int n) {
 
 void max_heap_sort(vi &arr, int n) {
 
-	for(int i = n/2-1; i >= 0; i--) {
+	for(int i = n/2; i >= 0; i--) {
 
 		max_heapify(arr, i, n);
 	}
@@ -97,7 +97,7 @@ void min_heap_sort(vi &arr) {
 
 	int n = arr.size();
 
-	for(int i = n/2-1; i >= 0; i--) {
+	for(int i = n/2; i >= 0; i--) {
 
 		min_heapify(arr, i, n);
 	}
@@ -119,24 +119,25 @@ int main() {
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
 
-	int n;
-	cin>>n;
-	vi arr(n);
+	// int n;
+	// cin>>n;
+	// vi arr(n);
 
-	for(int i = 0; i < n; i++) {
+	// for(int i = 0; i < n; i++) {
 
-		cin>>arr[i];
-	}
+	// 	cin>>arr[i];
+	// }
 
 
-	min_heap_sort(arr);
-	display(arr);
-	arr.push_back(4);
-	min_heap_sort(arr);
-	display(arr);
+	// min_heap_sort(arr);
+	// display(arr);
+	// // min_heap_sort(arr);
+	// // display(arr);
 	// max_heap_sort(arr, n);
 	// display(arr);
 
+
+    cout<<log2(6);
 
     fclose(stdin);
     fclose(stdout);

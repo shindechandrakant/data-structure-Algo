@@ -17,19 +17,57 @@ using namespace std;
 
 /*
 problem statement -> 
-Problem link -> 
+Problem link -> https://codeforces.com/contest/1560/problem/A
 */
+
+
+vector<int> div3() {
+
+
+	vector<int> answer;
+
+	for(int i = 1; i < 3000; i++) {
+
+		if(i % 3 != 0 and i % 10 != 3) {
+
+			answer.push_back(i);
+		}
+
+
+	}
+
+
+	return answer;
+
+}
 
 int main() {
 
-    freopen("../io/input.txt", "r", stdin);
-    freopen("../io/output.txt", "w", stdout);
+    // freopen("../io/input.txt", "r", stdin);
+    // freopen("../io/output.txt", "w", stdout);
 
 
-	cout<<"I'm Running";
+	int t;
+	cin>>t;
+
+	vector<int> answer = div3();
+
+	while(t--) {
+
+		int x;
+		cin>>x;
+
+		cout<<answer[x-1]<<endl;
 
 
-    fclose(stdin);
-    fclose(stdout);
+	}
+
+
+
+
+
+
+    // fclose(stdin);
+    // fclose(stdout);
 
 }

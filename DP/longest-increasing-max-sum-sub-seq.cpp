@@ -9,7 +9,7 @@ using namespace std;
 #define vb vector<bool>
 #define vs vector<string>
 #define newline(n) for(int i = 0; i < (n); i++ )cout<<endl;
-#define infor(vect) for(auto it : (vect)) { cout<<it<<" "; cout<<endl; }
+#define infor(vect) for(auto it : (vect)) { cout<<it<<endl; }
 #define ump unordered_map
 #define mp map
 #define v2d(name, m, n, inti) vector<vi>(name)(m, vi(n, inti))
@@ -21,58 +21,37 @@ Problem link ->
 */
 
 
-
-
-int longestSubsequence(vector<int> &arr) {
+pair<int, int> maxSumIncreasingSubsequence(vector<int> &arr) {
 
 	int n = arr.size();
-	vector<int> dp(n, 1);
-	int answer = 0;
-	for(int i = 1; i < n; i++) {
+
+	int sum = 0;
+	vector<pair<int, int> > dp(n, {1, 0});
+
+	// first -> length
+	// second -> sum
+
+	for(int i = 0; i < n; i++) {
+
+		dp[i].second = arr[i];
 
 		for(int j = i-1; j >= 0; j--) {
 
-			if(arr[i] > arr[j]) {
+			if(arr[i] >= arr[j] and dp[i].second < (dp[j].second + arr[i])) {
 
-				dp[i] = max(dp[i], dp[j]+1);
+				dp[i] = { , dp[j].second + arr[i] };
 			}
-		}
-	}
 
 
-	int indx = 0;
-	for(int i = 0; i < n; i++) {
-
-		if(answer < dp[i]) {
-
-			answer = dp[i];
-			indx = i;
-		}
-	}
-
-	int counter = answer;
-	vector<int> sequence;
-	int curr_val = arr[indx];
-
-	for(int i = indx; i >= 0; i--) {
-
-		if(dp[i] == counter and curr_val >= arr[i]) {
-
-			sequence.push_back(arr[i]);
-			curr_val = arr[i];
-			counter -=1;
 		}
 
 	}
 
-	for(int i = answer-1; i >= 0; i--) {
 
-		cout<<sequence[i]<<" ";
-	}
-	cout<<endl;
 
-	return answer;
+	return sum;
 }
+
 
 
 int main() {
@@ -90,7 +69,8 @@ int main() {
     	cin>>arr[i];
     }
 
-    cout<<longestSubsequence(arr);
+    cout<<maxSumIncreasingSubsequence(arr);
+
     fclose(stdin);
     fclose(stdout);
 

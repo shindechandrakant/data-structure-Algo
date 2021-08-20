@@ -8,7 +8,7 @@ using namespace std;
 #define pi pair<ll, ll>
 #define v2d(name, m, n, inti) vector<vi>(name)(m, vi(n, inti))
 #define inf 1e18
-// problem statement -> knapsack2 dp
+// problem statement -> knapsack2 dp, sanket Sing Atcoder part 1
 // Problem link -> https://atcoder.jp/contests/dp/tasks/dp_e
 
 int main() {

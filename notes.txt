@@ -41,22 +41,6 @@ void facto(int n)
 }
 
 
-int main() {
-
-    int t;
-    cin>>t;
-    
-    while(t--)
-    {
-       int n;
-       cin>>n;
-       
-       facto(n);
-    }
-}
-
-
-
 
 // Diameter of tree
 
@@ -88,21 +72,15 @@ Let S(n, k) be total number of partitions of n elements into k sets.
 
 
 
+---------MySql--------------
 
+-- import database :- source path/filename.sql
+-- export db:      :- mysqldump -u (root) -p -P (3307) db_name > fileaname
+                                    (localhost) (Port)
+-- check port :- show global ports like port
+-- current user:- select current_user();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- limit 3, 4 : get 4 rows after 3rd row (exclude 3rd)
 
 
 
