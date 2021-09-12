@@ -78,6 +78,10 @@ int LCSDynamicProgramming(string a, string b)
 
 int main() {
 
+
+    freopen("../io/input.txt", "r", stdin);
+    freopen("../io/output.txt", "w", stdout);
+
 	string a, b;
 	cin>>a>>b;
 	string ans = "";
@@ -85,5 +89,11 @@ int main() {
 	cout<<"ans: "<<LCSRecursion(0, 0, a, b)<<" Recursion calls: "<<rcmp<<endl;
 	cout<<"ans: "<<LCSBacktracking(0, 0, a, b, dp)<<" Backtracking calls: "<<bcmp<<endl;
 	cout<<"ans: "<<LCSDynamicProgramming(a, b)<<" Dynamic Programming";;;;;;;;
+
+
+
+
+    fclose(stdin);
+    fclose(stdout);
 
 }

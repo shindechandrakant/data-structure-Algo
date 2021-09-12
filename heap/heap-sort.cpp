@@ -137,7 +137,6 @@ int main() {
 	// display(arr);
 
 
-    cout<<log2(6);
 
     fclose(stdin);
     fclose(stdout);

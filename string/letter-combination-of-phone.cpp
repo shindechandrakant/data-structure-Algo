@@ -26,8 +26,11 @@ int main() {
     freopen("../io/output.txt", "w", stdout);
 
 
-	cout<<"I'm fffff+Running";
+	
+    int y = -9;
+    int x = 0 - y;
 
+    cout<<x;
 
 
 
@@ -37,3 +40,28 @@ int main() {
     fclose(stdout);
 
 }
+class Solution {
+public:
+    
+    const vector<string> pad {
+        "","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"
+    };
+    
+    vector<string> letterCombinations(string digits) {
+        if(digits.size()==0) return {};
+        
+        vector<string> result;
+        result.push_back("");
+        
+        for(auto digit : digits){
+            vector<string> temp;
+            for(auto dial : pad[digit- '0']){
+                for(auto s : result){
+                    temp.push_back(s + dial);
+                }
+            }
+            result.swap(temp);
+        }
+        return result;
+    }
+};

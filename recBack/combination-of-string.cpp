@@ -20,16 +20,34 @@ problem statement ->
 Problem link -> 
 */
 
+
+void combinationsOfString(int curr, int total, int selecton, int totalSelections, string ssf) {
+
+    if(curr > total) {
+
+        if(selecton == totalSelections) {
+
+            cout<<ssf<<endl;
+        }
+        return;
+    }
+
+    combinationsOfString(curr+1, total, selecton, totalSelections, ssf+"-");
+    combinationsOfString(curr+1, total, selecton+1, totalSelections, ssf+ to_string(selecton));
+}
+
+
+
+
 int main() {
 
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
 
 
-	cout<<"I'm Running";
+	combinationsOfString(0, 4, 0, 3, "");
 
 
     fclose(stdin);
     fclose(stdout);
-
 }

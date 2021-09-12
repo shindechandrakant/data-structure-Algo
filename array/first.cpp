@@ -20,15 +20,30 @@ problem statement ->
 Problem link -> 
 */
 
+
+char *test() {
+
+	return "Cahadu";;
+}
+
 int main() {
 
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
 
+  
 
-	cout<<"I'm fffff+Running";
+    // int ans;
+    // ans = input1 * (input1 + 1) / 2;
+    // ans +=1;
+    // return ans;
 
+    char *str = test();
 
+    for(int i = 0; i < 5; i++) {
+
+    	cout<<str[i];
+    }
 
 
 
@@ -37,3 +52,15 @@ int main() {
     fclose(stdout);
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

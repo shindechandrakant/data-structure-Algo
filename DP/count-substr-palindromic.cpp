@@ -42,6 +42,8 @@ bool isItPalindrome(string str) {
 void printAllSubstrings(string str) {
 
 	int n = str.size();
+	int count = 0;
+
 
 	for(int i = 0; i < n; i++) {
 
@@ -55,57 +57,73 @@ void printAllSubstrings(string str) {
 
 			if(isItPalindrome(substr)) {
 
-				cout<<substr<<endl;;
+				count++;
+				cout<<substr<<endl;
 			}
 		}
 	}
+
+	cout<<count<<endl;
 }
 
 
-template<typename T>
-void printDiagonalMtrix(vector<vector<T> > &matrix) {
+// template<typename T>
+// void printDiagonalMtrix(vector<vector<T> > &matrix) {
 
 
-	int n = matrix.size();
-	int m = matrix[0].size();
+// 	int n = matrix.size();
+// 	int m = matrix[0].size();
 
-	for(int col = 0; col < m; col++) {
+// 	for(int col = 0; col < m; col++) {
 
-		for(int row = 0, gap = col; gap < m; row++, gap++) {
+// 		for(int row = 0, gap = col; gap < m; row++, gap++) {
 
-			cout<<matrix[row][gap]<<" ";
-		}
-		cout<<endl;
-	}
-}
+// 			cout<<matrix[row][gap]<<" ";
+// 		}
+// 		cout<<endl;
+// 	}
+// }
 
 
 void countSubstrPalindrome(string str) {
 
-
 	int n = str.size();
 
-
 	vector<vector<string> > grid(n, vector<string> (n, "-"));
-
+	vector<vector<bool> > dp(n, vector<bool> (n, false));
+	int count = 0;
 
 	for(int col = 0; col < n; col++) {
 
+		for(int row = 0, gap = col; gap < n; row++, gap++) {
 
-		for(int row = 0; gap = col; gap < n; gap++, row++) {
+			if(col == 0) {
 
-			if(gap == 0) {
+				dp[row][gap] = true;
+			}
+			else if(col == 1) {
 
-				grid = str[]
+				dp[row][gap] = str[row] == str[gap];
+			}
+			else if(str[row] == str[gap]) {
+
+				dp[row][gap] = dp[row+1][gap-1];
+			} 
+			else {
+
+				dp[row][gap] = false;
 			}
 
+			if(dp[row][gap]) {
+
+				count++;
+			}
 		}
+
 
 	}
 
-
-
-
+	cout<<count<<endl;
 }
 
 
@@ -115,21 +133,20 @@ int main() {
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
 
+	string str;
+	cin>>str;
 
-	// string str;
+	printAllSubstrings(str);
+	countSubstrPalindrome(str);
 
-	// cin>>str;
+	// vector<vector<int> > mat = { 
+	// 					{ 1, 2, 3, 4}, 
+	// 					{ 5, 6, 7, 8}, 
+	// 					{ 9, 10, 11, 12},
+	// 					{ 13, 14, 15, 16}
+	// 				};
 
-	// printAllSubstrings(str);
-
-	vector<vector<int> > mat = { 
-						{ 1, 2, 3, 4}, 
-						{ 5, 6, 7, 8}, 
-						{ 9, 10, 11, 12},
-						{ 13, 14, 15, 16}
-					};
-
-	printDiagonalMtrix<int>(mat);
+	// printDiagonalMtrix<int>(mat);
 
 
 
