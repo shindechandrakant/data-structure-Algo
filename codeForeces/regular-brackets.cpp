@@ -1,7 +1,9 @@
 #include<iostream>
 #include<math.h>
 #include<bits/stdc++.h>
+#include <chrono>
 using namespace std;
+using namespace chrono;
 #define ll long long int
 #define MOD 1000000007
 #define vi vector<ll>
@@ -17,61 +19,40 @@ using namespace std;
 
 /*
 problem statement -> 
-Problem link -> https://codeforces.com/contest/1560/problem/A
+Problem link -> https://codeforces.com/contest/1574/problem/A
 */
-
-
-vector<int> div3() {
-
-
-	vector<int> answer;
-
-	for(int i = 1; i < 3000; i++) {
-
-		if(i % 3 != 0 and i % 10 != 3) {
-
-			answer.push_back(i);
-		}
-
-
-	}
-
-
-	return answer;
-
-}
 
 int main() {
 
-    // freopen("../io/input.txt", "r", stdin);
-    // freopen("../io/output.txt", "w", stdout);
+  freopen("../io/input.txt", "r", stdin);
+  freopen("../io/output.txt", "w", stdout);
+  auto start = high_resolution_clock::now();
 
 
-	int t;
-	cin>>t;
+  
 
-	vector<int> answer = div3();
-
-	while(t--) {
-
-		int x;
-		cin>>x;
-
-		cout<<answer[x-1]<<endl;
-
-
-	}
+	cout<<"I'm Running";
 
 
 
 
 
 
-    // fclose(stdin);
-    // fclose(stdout);
+
+
+
+
+
+
+
+
+
+
+  auto stop = high_resolution_clock::now();
+  auto duration = duration_cast<microseconds>(stop - start);
+  cout<<"\n\nTime :"<<(duration.count()/1000.0)<<" ms" << endl;
+  fclose(stdin);
+  fclose(stdout);
+
 
 }
-
-
-
-	
