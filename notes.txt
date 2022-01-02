@@ -82,7 +82,7 @@ Let S(n, k) be total number of partitions of n elements into k sets.
 
 -- limit 3, 4 : get 4 rows after 3rd row (exclude 3rd)
 
-
+g++ -std=c++11 -o target target.cpp
 
 
 

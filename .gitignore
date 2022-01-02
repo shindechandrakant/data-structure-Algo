@@ -1,4 +1,5 @@
 .exe
 inputf.in
 outputf.in
-./.exe
+.*/.exe
+todo.txt

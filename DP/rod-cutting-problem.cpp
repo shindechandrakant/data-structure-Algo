@@ -20,18 +20,56 @@ problem statement ->
 Problem link -> 
 */
 
-int *answer;
+string rods;
+void bruteForceRodCutting(vector<int> values,int rod, int profit, int &answer, string psf) {
 
-int maxCuttingProfit(vector<int> &arr, int length) {
 
-	if(length == 0) {
-
-		return 0;
+	if(rod == 0) {
+		if(answer < profit)
+			rods = psf;
+		answer = max(profit, answer);		
+		return;
 	}
 
-	int maxProfit = 
+	if(rod < 0) {
+
+		return;
+	}
+
+	for(int i = 0; i < values.size(); i++) {
+
+		bruteForceRodCutting(values,rod-(i+1), profit+values[i], answer, psf + "-" + to_string(i+1));
+	}
+}
 
 
+void dpApproach(vector<int> &arr) {
+
+	int n = arr.size();
+	vector<int> dp(n+1);
+	dp[0] = arr[0];
+	dp[1] = max(arr[1], 2*arr[0]);
+
+	for(int i = 2; i < n; i++) {
+
+		dp[i] = arr[i];
+
+		int start = 0;
+		int end = i-1;
+
+		while(start <= end) {
+			dp[i] = max(dp[i], dp[start]+dp[end]);
+			start++;
+			end--;
+		}
+	}
+
+	for (int i = 0; i < n; ++i)
+	{
+		cout<<dp[i]<<" ";
+	}
+	cout<<endl;
+	cout<<dp[n-1];
 }
 
 
@@ -40,30 +78,27 @@ int main() {
 
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
-
+    freopen("../io/err.txt", "w", stderr);
 
 	int n;
 	cin>>n;
-
-	answer = new int[n] { 0 };
-
 	vector<int> arr(n);
 
 	for(int i = 0; i < n; i++) {
 
 		cin>>arr[i];
-		answer[i] = arr[i];
-
-
 	}
 
-
-
+	dpApproach(arr);
+	// int answer = 0;
+	// bruteForceRodCutting(arr, n, 0, answer, "");
+	// cout<<rods<<" "<<answer<<endl;
 
 
 
 
     fclose(stdin);
     fclose(stdout);
+    fclose(stderr);
 
 }

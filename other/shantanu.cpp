@@ -22,91 +22,90 @@ problem statement ->
 Problem link -> 
 */
 
-vector<int> stateOfCells (vector<int> cell, int days)
-{
-    vector<int>  answer;
-    // Write your code
-    for(int i=0;i<days ;i++)
-    {
-    if(cell[0]==1)
-    answer[0]=0;
-    else if(cell[1]==1)
-    answer[0]=1;
-   
-    if(cell[7]==1)
-    answer[7]=0;
-    else if(cell[6]==1)
-    answer[7]=1;
-   
-    for(int k=0;k<=6;k++)
-    {
-    if(cell[k-1]==cell[k+1]){
-    answer[k]=0;
-    }
-    else
-    {
-    answer[k]=cell[k+1];
-    }
-    }
-         cell=answer;
-    }
+// int solution(vector<int> &A) {
 
-   
-    return answer;
+//     sort(A.begin(), A.end());
+
+//     int start = 0;
+//     int end = A.size()-1;
+
+//     while(start < end) {
+
+//         if(A[start] < 0 && abs(A[start]) == A[end]) {
+
+//             return A[end];
+//         }
+//         else if(abs(A[start]) > A[end]) {
+
+//             start++;
+//         }
+//         else {
+//             end--;
+//         }
+//     }
+
+//     return 0;
+// }
+
+
+
+int solution(string &S, vector<int> &C) {
+
+
+    if(S.size() < 2) {
+
+        return 0;
+    }
+    int ans = 0;
+    int back = 0;
+    int forward = 1;
+    while(forward < S.size()) {
+
+        if(S[back] == S[forward]) {
+
+            if(C[back] <= C[forward]) {
+
+                ans += C[back];
+                back = forward;
+                forward++;
+            }
+            else {
+
+                ans += C[forward];
+                forward++;
+            }
+        }
+        else {
+
+            back = forward;
+            forward++;
+        }
+    }
+    return ans;
 }
 
 int main() {
 
-  freopen("../io/input.txt", "r", stdin);
-  freopen("../io/output.txt", "w", stdout);
-  auto start = high_resolution_clock::now();
+    freopen("../io/input.txt", "r", stdin);
+    freopen("../io/output.txt", "w", stdout);
+    auto start = high_resolution_clock::now();
 
 
-  
 
 
-	vector<int> v1(8);
-	vector<int> v2(8);
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
 
-	for(auto &it : v2) cin>>it;
+    vector<int> vec(n);
 
-	int days;
-	cin>>days;
+    for (int i = 0; i < n; i++)
+    {
+        cin>>vec[i];
+    }
 
-	// for(int i = 0; i < days; i++) {
-
-	// 	if(v2[0] == 1)
-	// 		v1[0] = 0;
-	// 	else if(v2[1] == 1)
-	// 		v1[0] = 1;
-
-	// 	if(v2[7] == 1)
-	// 		v1[7] = 0;
-	// 	else if(v2[6] == 1)
-	// 		v1[7] = 1;
-
-		
-	// 	for(int k = 1; k <= 6; k++) {
-
-
-	// 		// if(v2[k] == 1) {
-
-	// 		// 	v1[k] = 0;
-	// 		// }
-	// 		 if(v2[k-1] == v2[k+1]) {
-
-	// 			v1[k] = 0;
-	// 		}
-	// 		else {
-
-	// 			v1[k] = v2[k-1] or v2[k+1];
-	// 		}
-	// 	}
-	// 	v2 = v1;
-
-	// 	// for(int i = 0; i <8; i++) cout<<v2[i]<<" ";
-	// 	// 	cout<<endl;
-	// }
+    cout<<solution(s, vec);
 
 
 
@@ -114,12 +113,9 @@ int main() {
 
 
 
-
-  auto stop = high_resolution_clock::now();
-  auto duration = duration_cast<microseconds>(stop - start);
-  cout<<"\n\nTime :"<<(duration.count()/1000.0)<<" ms" << endl;
-  fclose(stdin);
-  fclose(stdout);
-
-
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+    cout<<"\n\nTime :"<<(duration.count()/1000.0)<<" ms" << endl;
+    fclose(stdin);
+    fclose(stdout);
 }

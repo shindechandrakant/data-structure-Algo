@@ -20,13 +20,27 @@ problem statement ->
 Problem link -> 
 */
 
+void towerOfHanoi(int disks, char towerA, char towerB, char towerC) {
+
+    if(disks == 0) {
+
+        return ;
+    }
+
+    towerOfHanoi(disks-1, towerA, towerC, towerB);
+    cout<<"[ "<<towerA<<" -> "<<towerB<<" ]\n";
+    towerOfHanoi(disks-1, towerC, towerB, towerA);
+}
+
+
+
 int main() {
 
     freopen("../io/input.txt", "r", stdin);
     freopen("../io/output.txt", "w", stdout);
 
 
-	cout<<"I'm Running";
+    towerOfHanoi(3, 'A', 'B', 'C');
 
 
 

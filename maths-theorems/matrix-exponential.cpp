@@ -113,11 +113,13 @@ int main() {
     freopen("../io/output.txt", "w", stdout);
 
     vector<vi> mat1 = getMatrix();
+    vector<vi> mat2 = getMatrix();
 
+    // vector<vi> ans = matrixExponential(mat1, 2);
 
-    vector<vi> ans = matrixExponential(mat1, 2);
-
+    vector<vi> ans = matrixMultiplication(mat1, mat2);
     display(mat1);
+    display(mat2);
     display(ans);
 
 

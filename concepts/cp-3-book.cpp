@@ -30,14 +30,31 @@ int main() {
 
 
 
-  vector<tuple<int, int, int> > tple;
-  tple.push_back({1,2,3});
-  cout<<tple.size();
+  // vector<tuple<int, int, int> > tple;
+  // tple.push_back({1,2,3});
+  // cout<<tple.size();
+
+  // set<vector<int> > st;
+
+  // st.insert({1, 3, 2});
+  // st.insert({1, 3, 2 }); // ordering matter
+
+  // cout<<st.size();
 
 
 
 
+  // auto it = equal_range(vect.begin(), vect.end(), x);
+  // it.first - contain lower_bound
+  // it.second - contain upper_bound
 
+  // subset using bit manipulation 
+
+
+  int n;
+  cin>>n;
+
+  
 
 
 

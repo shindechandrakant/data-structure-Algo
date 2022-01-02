@@ -3,18 +3,11 @@ Assignment 2:
 */
 #include<iostream>
 using namespace std;
-int gcd(int n1,int n2)
-{
-	if(n1==n2)
-		return n1;
-	if(n1==0)
-		return n2;
-	else if(n2==0)
-		return n1;
-	if(n1<n2)
-		return gcd(n1,n2-n1);
-	return gcd(n1-n2,n2);
+int gcd(int n1,int n2) {
+	
+	return n1 == 0 ? n2 : gcd(n2, n1%n2);
 }
+
 bool check_coprimes(int n[],int index)
 {
 	for(int i=0;i<index;i++)
@@ -28,8 +21,8 @@ bool check_coprimes(int n[],int index)
 	}
 	return true;
 }
-int d_find(int phi,int e)
-{
+int d_find(int phi,int e) {
+	
 	int y1=0,y2=1,y3,d3,d1=phi,d2=e,k=phi/e;
 	do
 	{

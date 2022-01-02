@@ -1,7 +1,9 @@
 #include<iostream>
 #include<math.h>
 #include<bits/stdc++.h>
+#include <chrono>
 using namespace std;
+using namespace chrono;
 #define ll long long int
 #define MOD 1000000007
 #define vi vector<ll>
@@ -22,18 +24,37 @@ Problem link ->
 
 int main() {
 
-    // freopen("../io/input.txt", "r", stdin);
-    // freopen("../io/output.txt", "w", stdout);
+    #ifndef ONLINE_JUDGE
+        freopen("../io/input.txt", "r", stdin);
+        freopen("../io/output.txt", "w", stdout);
+        auto start = high_resolution_clock::now();
+    #endif
+
+  
+
+    cout<<"I'm Running";
 
 
-	cout<<"I'm Running";
 
 
 
 
 
 
-    // fclose(stdin);
-    // fclose(stdout);
+
+
+
+
+
+
+
+    #ifndef ONLINE_JUDGE
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(stop - start);
+        cout<<"\n\nTime :"<<(duration.count()/1000.0)<<" ms" << endl;
+        fclose(stdin);
+        fclose(stdout);
+    #endif
+
 
 }
