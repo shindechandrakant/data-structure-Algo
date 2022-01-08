@@ -44,6 +44,30 @@ void printPermuatations(string str, int left, int right) {
 	}
 }
 
+void newWay(string str, string ssf) {
+
+
+	if(str.size() == 1) {
+
+		ssf.push_back(str[0]);
+		cout<<ssf<<endl;
+		return;
+	}
+
+	for(int mid = 0; mid < str.size(); mid++) {
+
+
+		string left = str.substr(0, mid);
+		string right = str.substr(mid+1);
+		string tt = left + right;
+		newWay(tt, ssf + str[mid]);
+	}
+
+
+
+
+}
+
 
 
 int main() {
@@ -55,8 +79,9 @@ int main() {
 
 	string str;
 	cin>>str;
-	printPermuatations(str, 0, str.size()-1);
+	// printPermuatations(str, 0, str.size()-1);
 
+	newWay(str, "");
 
 
 

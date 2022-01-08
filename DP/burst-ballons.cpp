@@ -80,7 +80,7 @@ int burstBallonsDP1(vector<int> &nums, map<vector<int>, int> &dp) {
 		mult *= (i == nums.size()-1 ? 1 : nums[i+1]);
 
 		nums.erase(nums.begin()+i);
-		// maX = max(maX, burstBallonsDP(nums, dp)+mult);
+		maX = max(maX, burstBallonsDP1(nums, dp)+mult);
 		nums.insert(nums.begin()+i, curr);		
 	}
 
