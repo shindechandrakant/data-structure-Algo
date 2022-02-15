@@ -9,7 +9,7 @@ struct person {
 
 struct comparator {
 
-	bool operator()(person p1, person p2) {
+	bool operator()(person const &p1, person const &p2) {
 
 		if(p1.age == p2.age) {
 

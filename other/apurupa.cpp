@@ -105,35 +105,10 @@ int main() {
         auto start = high_resolution_clock::now();
     #endif
 
+    cout<<"Hello\n";
 
-        int t;
-        cin>>t;
-
-        while(t--) {
-
-
-        long n;
-        cin>>n;
-        cout<<unlockKey(n)<<endl;
-        }
   
-    // int n, m;
-    // cin>>n>>m;
-
-    // vector<vector<int> > vect(n, vector<int>(m, 0));
-
-
-    // for(int i = 0; i < n; i++) {
-
-    //     for(int j= 0; j < m; j++) {
-
-    //         cin>>vect[i][j];
-    //     }
-    // }
-
-    // vector<int> ans = maxRevenue(vect);
-
-    // for(auto it: ans) cout<<it<<" ";
+   
 
 
     #ifndef ONLINE_JUDGE

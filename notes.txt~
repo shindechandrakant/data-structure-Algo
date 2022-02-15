@@ -87,3 +87,6 @@ mysqldump -u root -p -P 3306 blockfeit > blockfeit.sql
 g++ -std=c++11 -o target target.cpp
 
 
+
+
+

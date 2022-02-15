@@ -1,7 +1,5 @@
-3
-0
-1
-0
+Before Swp: a = 5, b = 6
+After Swp: a = 6, b = 5
 
 
-Time :0.961 ms
+Time :1.004 ms

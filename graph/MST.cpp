@@ -71,8 +71,8 @@ int main() {
 
 			int x, y, wt;
 			cin>>x>>y>>wt;
-			pq.push({x, y, wt, i+1});
-			nodeVector.push_back({x, y, wt});
+			pq.push({x-1, y-1, wt, i+1});
+			nodeVector.push_back({x-1, y-1, wt});
 		} 
 
 		vector<bool> added(nodes+1, false);

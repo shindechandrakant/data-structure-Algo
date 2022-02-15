@@ -17,29 +17,9 @@ using namespace chrono;
 #define v2d(name, m, n, inti) vector<vi>(name)(m, vi(n, inti))
 #define MOD 1000000007
 
-
-void swap(int &a, int &b) {
-
-
-    // a = 5'
-    // b = 6'
-    b = a + b;
-    a = b - a;
-    b = b - a;
-}
-
-// What replaces the question mark ?
-// 9999 = 4
-// 8888 = 8
-// 1816 = 3
-// 1212 = 0
-// 1919 = ?
-
-
 /*
-select sum(salary) as no_of_employees
-from employee
-order by emp_id desc;
+problem statement -> multiply-num-by-k.cpp
+Problem link -> https://www.codechef.com/FEB221C/submit/DIGMULK
 */
 
 
@@ -48,24 +28,32 @@ int main() {
     #ifndef ONLINE_JUDGE
         freopen("../io/input.txt", "r", stdin);
         freopen("../io/output.txt", "w", stdout);
+        freopen("../io/err.txt", "w", stderr);
         auto start = high_resolution_clock::now();
     #endif
+    
+	  int t;
+	  cin>>t;
+	  while(t--) {
+	    
+	    ll n, bp, levels;
+	    cin>>n>>bp>>levels;
+	    string num;
+	    cin>>num;
+	    ll digits = n;
+	    map<ll, ll> resultDigits;
 
+	    for(int i = 0; i <= 9; i++) {
 
-    int a, b;
-    cin>>a>>b;
+	    	ll ans = bp*i;
 
-    cout<<"Before Swp: a = "<<a<<", b = "<<b<<endl;
-    swap(a,b );
-    cout<<"After Swp: a = "<<a<<", b = "<<b<<endl;
+	    	resultDigits[i] = to_string(ans).size();
 
+	    	cout<<resultDigits[i]<<endl;
 
+	    }
 
-
-
-
-
-
+	}
 
 
 
@@ -75,7 +63,7 @@ int main() {
         cout<<"\n\nTime :"<<(duration.count()/1000.0)<<" ms" << endl;
         fclose(stdin);
         fclose(stdout);
+        fclose(stderr);
     #endif
-
-
 }
+

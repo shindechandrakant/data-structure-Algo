@@ -17,30 +17,64 @@ using namespace chrono;
 #define v2d(name, m, n, inti) vector<vi>(name)(m, vi(n, inti))
 #define MOD 1000000007
 
+/*
+problem statement -> shift-rows.cpp
+Problem link -> source
+*/
 
-void swap(int &a, int &b) {
 
 
-    // a = 5'
-    // b = 6'
-    b = a + b;
-    a = b - a;
-    b = b - a;
+
+void shiftRowZeros(vector<int> &arr) {
+
+	int n = arr.size();
+
+	for(int i = 0; i < n; i++) {
+
+		int end = i;
+		int start = i;
+		while(end < n && arr[end] == 0) {
+			end++;
+		}
+		while(end < n) {
+			arr[start] = arr[end];
+			start++;
+			end++;
+		}
+		while(start < n) {
+			arr[start] = 0;
+			start++;
+		}
+	}
 }
 
-// What replaces the question mark ?
-// 9999 = 4
-// 8888 = 8
-// 1816 = 3
-// 1212 = 0
-// 1919 = ?
+void addRowElements(vector<int> &arr) {
+
+	int n = arr.size();
+
+	shiftRowZeros(arr);
+	for(int i = 0; i < n-1; i++) {
+
+		if(arr[i] == arr[i+1]) {
+
+			arr[i] += arr[i+1];
+			arr[i+1] = 0;
+		}
+
+	}
+	shiftRowZeros(arr);
+}
+
+void printArray(vector<int> &arr) {
+
+	for(auto it: arr) {
+
+		cout<<it<<" ";
+	}
+	cout<<endl;
+}
 
 
-/*
-select sum(salary) as no_of_employees
-from employee
-order by emp_id desc;
-*/
 
 
 int main() {
@@ -48,23 +82,29 @@ int main() {
     #ifndef ONLINE_JUDGE
         freopen("../io/input.txt", "r", stdin);
         freopen("../io/output.txt", "w", stdout);
+        freopen("../io/err.txt", "w", stderr);
         auto start = high_resolution_clock::now();
     #endif
 
+  	int t;
+  	cin>>t;
+  		int n;
+	  	cin>>n;
 
-    int a, b;
-    cin>>a>>b;
-
-    cout<<"Before Swp: a = "<<a<<", b = "<<b<<endl;
-    swap(a,b );
-    cout<<"After Swp: a = "<<a<<", b = "<<b<<endl;
-
+  	while(t--) {
 
 
+	  	vector<int> arr(n);
+
+	  	for(int i = 0; i < n; i++) {
+
+	  		cin>>arr[i];
+	  	}
 
 
-
-
+	  	addRowElements(arr);
+	  	printArray(arr);
+  	}
 
 
 
@@ -75,7 +115,7 @@ int main() {
         cout<<"\n\nTime :"<<(duration.count()/1000.0)<<" ms" << endl;
         fclose(stdin);
         fclose(stdout);
+        fclose(stderr);
     #endif
-
-
 }
+
