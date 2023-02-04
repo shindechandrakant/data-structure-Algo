@@ -18,8 +18,8 @@ using namespace chrono;
 #define MOD 1000000007
 
 /*
-problem statement -> starter-25-codechef-1.cpp
-Problem link -> source
+problem statement -> doubleString.cpp
+Problem link -> https://codeforces.com/contest/1703/problem/D
 */
 
 int main() {
@@ -32,10 +32,65 @@ int main() {
     #endif
 
   	
-    int x;
-    cin>>x;
+  	int t;
+  	cin>>t;
+
+  	while(t--) {
+
+  		int n;
+  		cin>>n;
+  		map<string, int> strs;
+
+  		for(int i = 0; i < n; i++) {
+
+  			string it;
+  			cin>>it;
+  			strs[it]++;
+  		}
+
+		
+		string answer;  	
+  		for(auto str1 : strs) {
+
+
+
+  			string str = str1.first;
+  			bool flag = false;
+  			string temp;
+  			temp.push_back(str1.first[0]);
+
+
+  			for(int i = 1; i < str.size(); i++) {
+
+  				string subStr = str.substr(i);
+
+  				if(strs.count(subStr) == 1 || strs.count(temp) == 1) {
+
+  					flag = true;
+  					break;
+  				} 
+  				temp.push_back(str[i]);
+
+
+  			}
+
+  			if(flag) {
+  				answer.push_back('1');
+  			}else {
+
+  				answer.push_back('0');
+  			}
+
+
+  		}
+
+  		cout<<answer<<endl;
+
+
+
+
+  	}
   	
-  	cout<<x<<" Hello, I'm Running : starter-25-codechef-1.cpp";
 
 
 

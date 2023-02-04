@@ -18,9 +18,11 @@ using namespace chrono;
 #define MOD 1000000007
 
 /*
-problem statement -> starter-25-codechef-1.cpp
-Problem link -> source
+problem statement -> cipher.cpp
+Problem link -> https://codeforces.com/contest/1703/problem/C
 */
+
+
 
 int main() {
 
@@ -32,10 +34,60 @@ int main() {
     #endif
 
   	
-    int x;
-    cin>>x;
-  	
-  	cout<<x<<" Hello, I'm Running : starter-25-codechef-1.cpp";
+  	int t;
+  	cin>>t;
+
+  	while(t--) {
+
+  		int wheels;
+  		cin>>wheels;
+
+  		vector<int> init(wheels);
+  		for(auto &it : init) {
+
+  			cin>>it;
+  		}
+
+  		for(int i = 0; i < wheels; i++) {
+
+  			int n;
+  			cin>>n;
+  			string moves;
+  			cin>>moves;
+
+  			int number = init[i];
+
+  			for(auto ops : moves) {
+
+
+  				if(ops == 'D') {
+
+  					if(number == 9) {
+  						number = 0;
+  					}
+  					else {
+
+  						number += 1;
+  					}
+  				}
+  				else {
+
+  					if(number == 0) {
+  						number = 9;
+  					}
+  					else {
+
+  						number -= 1;
+  					}
+
+  				}
+  			}
+
+
+  			cout<<number<<" ";
+  		}
+  		cout<<endl;
+  	}
 
 
 

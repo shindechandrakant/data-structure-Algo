@@ -166,13 +166,7 @@ int main() {
     #endif
 
   
-
-        questionThree();
-
-
-
-
-
+    cout<<"endl;";
 
 
 

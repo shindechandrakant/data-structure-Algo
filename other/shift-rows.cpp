@@ -22,6 +22,28 @@ problem statement -> shift-rows.cpp
 Problem link -> source
 */
 
+void shiftRowZeros(vector<int> &arr) {
+
+	int start = 0;
+	int end = 0;
+
+	while(end < arr.size()) {
+
+		if(arr[end] != 0) {
+
+			arr[start] = arr[end];
+			start++;
+		}
+		end;
+	}
+
+	while(start < arr.size()) {
+
+		arr[start] = 0;
+	}
+
+}
+
 
 
 

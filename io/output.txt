@@ -1,5 +1,4 @@
-Before Swp: a = 5, b = 6
-After Swp: a = 6, b = 5
+Hello World
+Let's begin new Journey
 
-
-Time :1.004 ms
+Time :0 ms

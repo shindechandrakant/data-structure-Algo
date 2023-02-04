@@ -105,9 +105,28 @@ int main() {
         auto start = high_resolution_clock::now();
     #endif
 
-    cout<<"Hello\n";
+    int t;
+    cin>>t;
+    while(t--) {
 
-  
+        int h1, m1, h2, m2;
+        cin>>h1>>m1;
+        cin>>h2>>m2;
+
+        int ansm = m1+m2;
+        int ansh = h1 + h2;
+
+        if(ansm > 60) {
+            ansm -= 60;
+            ansh += 1;
+        }
+
+        if(ansh > 23) {
+
+            ansh -= 24;
+        }
+        cout<<ansh<<" "<<ansm<<endl;
+    }
    
 
 
